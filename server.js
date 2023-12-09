@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser')
 const cardRouter = require('./routes/cardroute')
 const checklistRouter = require('./routes/checklistRouter')
 
-
 const app = express()
 
 app.use(cors({
