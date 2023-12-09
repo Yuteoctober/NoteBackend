@@ -10,7 +10,7 @@ const checklistRouter = require('./routes/checklistRouter')
 const app = express()
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://192.168.1.39:5173'],
+    origin: ['http://localhost:5173', 'https://notebackend-qr35.onrender.com/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
