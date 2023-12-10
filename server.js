@@ -10,7 +10,7 @@ const checklistRouter = require('./routes/checklistRouter')
 const app = express()
 
 const corsOptions ={
-    origin: '*', 
+    origin: 'https://workflow-sticky-note.netlify.app/', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true,    
     origin: true       
