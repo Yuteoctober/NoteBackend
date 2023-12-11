@@ -84,6 +84,21 @@ router.put('/avatar/:id', async (req, res) => {
         .catch(err => console.log(err))
 })
 
+router.put('/lock/:id', async (req, res) => {
+    const {id} = req.params
+    const {lock} = req.body
+
+    if (!id) return
+    const user = await UserModel.findById(id)
+    if(!user) return
+
+    user.lock = lock
+    await user.save()
+        .then(result => res.json(result))
+        .catch(err => console.log(err))
+
+})
+
 
 
 module.exports = router;
