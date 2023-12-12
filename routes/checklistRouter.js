@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/create-checklist', async (req, res) => {
   
     await CheckListModel.create({
+      checklistName: req.body.checklistName,
       checklist1: req.body.checklist1,
       checklist2: req.body.checklist2,
       checklist3: req.body.checklist3,

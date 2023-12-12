@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const CheckListSchema = new mongoose.Schema({
+    checklistName: { type: String },
     checklist1: { type: String },
     checklist2: { type: String },
     checklist3: { type: String },
