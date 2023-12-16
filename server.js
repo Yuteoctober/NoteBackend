@@ -25,7 +25,10 @@ app.use('/auth', userRouter)
 app.use('/card', cardRouter)
 app.use('/checklist', checklistRouter)
 
-
+/// script to keep server alive while hosting
+app.get('/keep-alive', (req, res) => {
+    res.send({message: 'I am still alive 🐒'})
+})
 
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
