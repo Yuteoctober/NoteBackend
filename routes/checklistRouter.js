@@ -118,6 +118,29 @@ router.post('/create-checklist', async (req, res) => {
         res.json({message: 'delete successful'})
       })
 
+      router.put('/checklist-color-change/:id', async (req, res) => {
+        const { id } = req.params
+        const { color } = req.body
+    
+        try {
+          if (!id) return;
+    
+          const checklist = await CheckListModel.findById(id)
+    
+          if (!checklist) return;
+    
+          checklist.color = color
+    
+          await checklist.save()
+    
+          res.json(checklist.color)
+    
+        } catch (err) {
+          console.log(err)
+          res.status(500).json({ error: 'Internal server error' });
+        }   
+      })
+
 
    
 

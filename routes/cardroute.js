@@ -99,6 +99,28 @@ router.post('/create-card', async (req, res) => {
     }
 });
 
+  router.put('/card-color-change/:id', async (req, res) => {
+    const { id } = req.params
+    const { color } = req.body
+
+    try {
+      if (!id) return;
+
+      const card = await CardModel.findById(id)
+
+      if (!card) return;
+
+      card.color = color
+
+      await card.save()
+
+      res.json(card.color)
+
+    } catch (err) {
+      console.log(err)
+      res.status(500).json({ error: 'Internal server error' });
+    }   
+  })
 
 
 
