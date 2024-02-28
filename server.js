@@ -6,11 +6,18 @@ const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const cardRouter = require('./routes/cardroute')
 const checklistRouter = require('./routes/checklistRouter')
+const visitRouter = require('./routes/visitroute')
 
 const app = express()
 
 const corsOptions ={
-    origin: 'https://workflow-sticky-note.netlify.app/', 
+    origin: 
+    [
+        'https://workflow-sticky-note.netlify.app/',
+        'https://yuteoctober.github.io/dndPortfolio/',
+        'https://opennft.netlify.app/',
+        'http://192.168.1.39:5173/',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials:true,    
     origin: true       
@@ -24,6 +31,7 @@ dotenv.config()
 app.use('/auth', userRouter)
 app.use('/card', cardRouter)
 app.use('/checklist', checklistRouter)
+app.use('/visit', visitRouter)
 
 /// script to keep server alive while hosting
 app.get('/keep-alive', (req, res) => {
